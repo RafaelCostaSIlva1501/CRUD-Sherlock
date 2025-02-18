@@ -1,0 +1,63 @@
+<form
+  action="/edited"
+  method="post"
+  enctype="multipart/form-data"
+  class="flex flex-col gap-4 h-fit p-6 rounded-lg shadow-lg bg-white"
+>
+
+  <div class="flex flex-row gap-4">
+    <img src="../img/{{produtos.imagem}}" class="w-32 h-48 rounded-md" />
+
+    <div class="flex flex-col gap-4">
+      <input
+        type="hidden"
+        name="code"
+        value="{{produtos.codigo}}"
+        class="flex-1 outline-none text-gray-700"
+      />
+
+      <input type="hidden" name="currentImage" />
+
+      <label
+        for="name"
+        class="flex gap-2 p-2 border border-solid border-gray-500 rounded-md text-gray-900"
+      >
+        Produto:
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="{{produtos.nome}}"
+          class="flex-1 outline-none text-gray-700"
+        />
+      </label>
+      <label
+        for="price"
+        class="flex gap-2 p-2 border border-solid border-gray-500 rounded-md text-gray-900"
+      >
+        Preço:
+        <input
+          type="number"
+          id="price"
+          name="price"
+          value="{{produtos.valor}}"
+          class="flex-1 outline-none text-gray-700"
+        />
+      </label>
+      <input type="file" id="image" name="newImage" />
+    </div>
+  </div>
+
+  <div class="flex justify-between gap-2">
+    <button
+      type="submit"
+      class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-300"
+    >
+      Alterar
+    </button>
+    <a
+      href="/"
+      class="w-full bg-red-500 text-center hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-red-300"
+    >Cancelar</a>
+  </div>
+</form>

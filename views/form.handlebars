@@ -1,0 +1,79 @@
+<form
+  action="/register"
+  method="post"
+  enctype="multipart/form-data"
+  class="flex flex-col gap-4 h-fit p-6 rounded-lg shadow-lg bg-white"
+>
+  <label
+    for="name"
+    class="flex gap-2 p-2 border border-solid border-gray-500 rounded-md text-gray-900"
+  >
+    Produto:
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="flex-1 outline-none text-gray-700"
+    />
+  </label>
+
+  <label
+    for="price"
+    class="flex gap-2 p-2 border border-solid border-gray-500 rounded-md text-gray-900"
+  >
+    Preço:
+    <input
+      type="number"
+      id="price"
+      name="price"
+      class="flex-1 outline-none text-gray-700"
+    />
+  </label>
+
+  <input type="file" id="image" name="image" />
+
+  <button
+    type="submit"
+    class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-300"
+  >
+    Cadastrar
+  </button>
+</form>
+
+<div class="flex flex-row justify-center items-center flex-wrap gap-4 w-full">
+
+  {{#each produtos}}
+    <abbr title="{{nome}}" class="no-underline">
+      <article
+        class="flex flex-col gap-4 w-64 p-2 bg-white border border-gray-300 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex flex-row justify-between">
+          <abbr title="Alterar" class="no-underline">
+            <a
+              href="/edit/{{codigo}}"
+              class="material-symbols-outlined text-yellow-500"
+            >edit</a>
+          </abbr>
+
+          <abbr title="Remover" class="no-underline">
+            <a
+              href="/remove/{{codigo}}&{{imagem}}"
+              class="material-symbols-outlined text-red-500"
+            >delete
+            </a>
+          </abbr>
+        </div>
+        <img src="../img/{{imagem}}" class="w-32 h-48 rounded-md mx-auto" />
+        <span
+          class="text-lg font-semibold text-center text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis"
+        >
+          {{nome}}
+        </span>
+        <span
+          class="text-xl font-bold text-center text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis"
+        >R${{valor}}</span>
+      </article>
+    </abbr>
+
+  {{/each}}
+</div>
