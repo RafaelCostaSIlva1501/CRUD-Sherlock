@@ -44,7 +44,7 @@ const connection = mysql.createConnection({
 });
 
 // Porta
-const PORT = 8080;
+const PORT = process.env.PORT
 
 // Rotas
 app.get("/", (req, res) => {
